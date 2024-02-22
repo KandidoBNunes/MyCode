@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio</title>
+</head>
+<style> 
+body {
+    background: rgb(186, 70, 236);
+    font: normal 15pt Arial;
+}
+
+header {
+    color: white;
+    text-align: center;
+}
+
+section {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.363);
+}
+
+footer {
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+</style>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    
+    <section>
+        <div>
+            <p>Número: <input type="number" name="num" id="txtn">
+            <input type="button" value="Gerar Tabuada" onclick="tabuada()"></p>
+        </div>
+    
+        <div>
+            <select name="tabuada" id="seltab" size="10">
+                <option>Digite um número acima</option>
+            </select>
+        </div>
+    </section>
+    
+    <script>
+function tabuada() {
+    let num = document.getElementById('txtn');
+    let tab = document.getElementById('seltab');
+
+    if (num.value.length == 0) {
+        window.alert('Por favor, digite um número!');
+    } else {
+        let n = Number(num.value);
+        let c = 1;
+
+        tab.innerHTML = '';
+
+        while (c <= 10) {
+            let item = document.createElement('option');
+            item.text = `${n} x ${c} = ${n * c}`;
+            item.value = `${n} x ${c}`;
+            tab.appendChild(item);
+            c++;
+        }
+    }
+}
+
+    </script>
+</body>
+</html>
